@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { Context } from "../store/appContext";
-import { useHistory } from "react-router";
+import { useHistory } from "react-router-dom";
 import rigoImageUrl from "../../img/rigo-baby.jpg";
 import "../../styles/home.css";
 
@@ -8,13 +8,13 @@ export const Login = () => {
 	const { store, actions } = useContext(Context);
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
-	const history = useHistory();
+	// const history = useHistory();
 	
 	const handleClick = () => {
 		 actions.login(email, password);
 	}
 
-	if(store.token && store.token != "" && store.token != undefined) history.push("/");
+	// if(store.token && store.token != "" && store.token != undefined) history.push("/");
 
 	return (
 		<div className="text-center mt-5">

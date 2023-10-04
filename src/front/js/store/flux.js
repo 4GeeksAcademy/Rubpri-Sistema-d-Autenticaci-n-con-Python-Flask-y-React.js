@@ -24,7 +24,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			syncTokenFromSessionStore: () => {
 				const token = sessionStorage.getItem("token");
-				if(token && token != "" && token != undefined) setStore({ token: data.access_token });
+				if(token && token != "" && token != undefined) setStore({ token: token });
+			},
+
+			logout: () => {
+				sessionStorage.removeItem("token");
+				setStore({ token: null });
 			},
 
 			login: async (email, password) => {

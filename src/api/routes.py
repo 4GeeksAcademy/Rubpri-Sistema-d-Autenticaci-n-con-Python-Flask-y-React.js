@@ -67,7 +67,7 @@ def signup():
 
 
 @jwt_required()
-@api.route("/hello", methods=["GET"])
+@api.route("/private", methods=["GET"])
 def get_hello():
     
     dictionary = {

@@ -22,19 +22,27 @@ export const Navbar = () => {
 					</Link>
 
 					<Link to="/signup">
-						<button className="btn btn-primary">Signup</button>
+						<button className="btn btn-primary me-3" >Signup</button>
+					</Link>	
+					
+					<Link to="/private">
+						<button className="btn btn-primary">Private</button>
 					</Link>	
 
 					</div>
 					
 					
 					)
-					:
+					: (
 
-					
+					<div>
+						<Link to="/private">
+						<button className="btn btn-primary me-3">Private</button>
+						</Link>	
 						<button onClick={() => actions.logout() } className="btn btn-primary">Logout</button>
+					</div>
+					)
 					
-
 					}
 				</div>
 			</div>

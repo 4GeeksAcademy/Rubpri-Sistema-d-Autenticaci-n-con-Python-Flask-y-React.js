@@ -48,7 +48,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 		
 
 				try{
-				const response = await fetch('https://urban-couscous-5wx6jg9rg7qhj7v-3001.app.github.dev/api/token', request)
+				const response = await fetch(`${process.env.BACKEND_URL}/api/token`, request)
 				if(response.status !== 200) {
 					
 					alert("There has been some error");

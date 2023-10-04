@@ -22,3 +22,13 @@ def create_token():
 
     access_token = create_access_token(identity=email)
     return jsonify(access_token=access_token)
+
+@jwt_required()
+@api.route("/hello", methods=["GET"])
+def get_hello():
+    
+    dictionary = {
+        "message": "hello world"
+    }
+
+    return jsonify (dictionary)

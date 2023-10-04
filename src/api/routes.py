@@ -23,6 +23,37 @@ def create_token():
     access_token = create_access_token(identity=email)
     return jsonify(access_token=access_token)
 
+
+@api.route("/signup", methods=['POST'])
+def signup():
+
+    data = request.get_json()
+
+    email = data.get("email")
+    password = data.get("password")
+
+    is_active = True
+
+    new_user = User(
+        email = email,
+        password = password,
+        is_active=is_active
+    )
+
+    db.session.add(new_user)
+    db.session.commit()
+
+    response_body = {
+                "message": "New user added",
+                "status": "ok",
+                "transaction": new_user.serialize()
+            }
+    
+    return response_body, 200
+
+
+
+
 @jwt_required()
 @api.route("/hello", methods=["GET"])
 def get_hello():
